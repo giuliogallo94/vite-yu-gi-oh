@@ -15,7 +15,7 @@ export default {
 
 <template>
   <div class="row p-0 m-0 justify-content-between align-items-stretch">
-    <div class="col-2 p-0 mx-2" v-for="cardObj in store.cardsArray">
+    <div class="col-2 p-0 mx-2 mb-4" v-for="cardObj in store.cardsArray">
       <AppCard :card="cardObj" :cardImg="cardObj.card_images" />
     </div>
   </div>
@@ -25,23 +25,11 @@ export default {
 @use "../style/partials/variables" as *;
 @use "../style/general.scss";
 
-.container {
-  background-color: blue;
-  padding: 2rem;
+.row {
+  background-color: white;
 
-  .row {
-    background-color: white;
-    display: flex;
-    // flex-wrap: wrap;
-    // justify-content: center;
-    align-items: stretch;
-    // text-align: center;
-    // gap: 1rem;
-
-    .col {
-      // width: 600px;
-      background-color: $mainColor;
-    }
+  .col-2 {
+    background-color: $mainColor;
   }
 }
 </style>

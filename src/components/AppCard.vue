@@ -22,7 +22,6 @@ export default {
 @use "../style/general.scss";
 
 .my-card {
-  background-color: $mainColor;
   img {
     width: 100%;
   }
