@@ -4,7 +4,7 @@ import { store } from "./store.js";
 import AppHeader from "./components/AppHeader.vue";
 import AppMain from "./components/AppMain.vue";
 
-import CardsList from "./components/CardsList.vue";
+// import CardsList from "./components/CardsList.vue";
 export default {
   data() {
     return {
@@ -12,10 +12,10 @@ export default {
     };
   },
   created() {
-    // this.store.loading = true;
+    this.store.loading = true;
     axios.get(this.store.apiUrl).then((resp) => {
       this.store.cardsArray = resp.data.data;
-      // this.store.loading = false;
+      this.store.loading = false;
     });
   },
   components: {
