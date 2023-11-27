@@ -14,17 +14,16 @@ export default {
 </script>
 
 <template>
-  <div class="container p-4">
-    <div class="row">
-      <div class="col" v-for="cardObj in store.cardsArray">
-        <AppCard :card="cardObj" :cardImg="cardObj.card_images" />
-      </div>
+  <div class="row p-0 m-0 justify-content-between align-items-stretch">
+    <div class="col-2 p-0 mx-2" v-for="cardObj in store.cardsArray">
+      <AppCard :card="cardObj" :cardImg="cardObj.card_images" />
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
 @use "../style/partials/variables" as *;
+@use "../style/general.scss";
 
 .container {
   background-color: blue;
@@ -33,14 +32,14 @@ export default {
   .row {
     background-color: white;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    // flex-wrap: wrap;
+    // justify-content: center;
     align-items: stretch;
-    text-align: center;
-    gap: 1rem;
+    // text-align: center;
+    // gap: 1rem;
 
     .col {
-      width: calc(100% / 5 - 1rem);
+      // width: 600px;
       background-color: $mainColor;
     }
   }
