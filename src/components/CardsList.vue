@@ -14,8 +14,8 @@ export default {
 </script>
 
 <template>
-  <div class="container">
-    <div class="row p-2">
+  <div class="container p-4">
+    <div class="row">
       <div class="col" v-for="cardObj in store.cardsArray">
         <AppCard :card="cardObj" :cardImg="cardObj.card_images" />
       </div>
@@ -27,6 +27,22 @@ export default {
 @use "../style/partials/variables" as *;
 
 .container {
-  background-color: white;
+  background-color: blue;
+  padding: 2rem;
+
+  .row {
+    background-color: white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    text-align: center;
+    gap: 1rem;
+
+    .col {
+      width: calc(100% / 5 - 1rem);
+      background-color: $mainColor;
+    }
+  }
 }
 </style>
