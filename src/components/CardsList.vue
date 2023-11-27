@@ -14,7 +14,7 @@ export default {
 </script>
 
 <template>
-  <div class="row p-0 m-0 justify-content-between align-items-stretch">
+  <div class="row p-0 m-0 justify-content-between">
     <div class="col-2 p-0 mx-2 mb-4" v-for="cardObj in store.cardsArray">
       <AppCard :card="cardObj" :cardImg="cardObj.card_images" />
     </div>

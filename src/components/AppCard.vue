@@ -10,10 +10,9 @@ export default {
 <template>
   <div class="mb-4 text-center my-card">
     <img v-for="img in card.card_images" :src="img.image_url_small" alt="" />
-    <div class="card-info p-2">
-      <h5>{{ card.name }}</h5>
-      <p>{{ card.archetype }}</p>
-    </div>
+
+    <h5 class="my-4">{{ card.name }}</h5>
+    <p class="">{{ card.archetype }}</p>
   </div>
 </template>
 
@@ -22,6 +21,12 @@ export default {
 @use "../style/general.scss";
 
 .my-card {
+  height: 100%;
+
+  .card-info {
+    // height: 100%;
+  }
+
   img {
     width: 100%;
   }
