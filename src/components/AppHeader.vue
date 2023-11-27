@@ -15,12 +15,11 @@ export default {};
 
 <style lang="scss" scoped>
 @use "../style/general.scss";
-// @use "../style/partials/variables" as *;
 
 header {
   background-color: white;
-  width: 100vw;
-
+  margin: 0;
+  height: 10vh;
   .logo {
     width: 150px;
 
