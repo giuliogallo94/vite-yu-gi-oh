@@ -5,11 +5,14 @@ import CardsList from "./CardsList.vue";
 import CardsStats from "./CardsStats.vue";
 import AppLoader from "./AppLoader.vue";
 import AppSearch from "./AppSearch.vue";
+import ChangePage from "./ChangePage.vue";
+
 export default {
   data() {
     return {
       store,
       axios,
+      page: 643,
     };
   },
   components: {
@@ -18,10 +21,11 @@ export default {
     AppLoader,
     AppSearch,
     AppSearch,
+    ChangePage,
+    ChangePage,
   },
   methods: {
     showSelected() {
-      console.log("select");
       if (this.store.archetypeChoice == "") {
         axios.get(this.store.apiUrl).then((resp) => {
           this.store.cardsArray = resp.data.data;
@@ -40,6 +44,28 @@ export default {
           });
       }
     },
+    loadPage() {
+      axios
+        .get(this.store.apiUrl, {
+          params: {
+            num: 20,
+            offset: this.page * 20,
+          },
+        })
+        .then((resp) => {
+          this.store.cardsArray = resp.data.data;
+        });
+    },
+    showPrevPage() {
+      console.log("ciao");
+      if (this.page == 0) return;
+      this.page--;
+      this.loadPage();
+    },
+    showNextPage() {
+      this.page++;
+      this.loadPage();
+    },
   },
 };
 </script>
@@ -49,8 +75,11 @@ export default {
     <AppLoader v-if="store.loading == true" />
     <div class="container p-5" v-else>
       <AppSearch @cardChoice="showSelected" />
+      <ChangePage @prevPage="showPrevPage" @nextPage="showNextPage" />
       <CardsStats />
       <CardsList />
+      <ChangePage @prevPage="showPrevPage" @nextPage="showNextPage" />
+      <h6 class="text-end mt-5">Current Page: {{ page }}</h6>
     </div>
   </div>
 </template>

@@ -18,30 +18,6 @@ export default {
       this.store.loading = false;
     });
   },
-  // methods: {
-  //   showSelected() {
-  //     console.log("cerca");
-  //     axios.get(this.store.apiUrl, {
-  //       params: {
-  //         archetype: this.store.archetypeChoice,
-  //       },
-  //     });
-  //     // .then((resp) => {
-  //     //   this.store.characters = resp.data.results;
-  //     // });
-  //   },
-  // },
-  // methods: {
-  //   getCards: function() {
-  //     axios.get("https://db.ygoprodeck.com/api/v7/cardinfo.php");
-  //     params {
-  //       num = 20,
-  //       offset = 0,
-
-  //     }
-
-  //   },
-  // },
   components: {
     AppHeader,
     AppMain,
