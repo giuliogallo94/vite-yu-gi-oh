@@ -10,7 +10,7 @@ export default {
 </script>
 
 <template>
-  <div class="stats mx-2">
+  <div class="stats">
     <p class="p-3 m-0">Totale {{ store.cardsArray.length }} personaggi</p>
   </div>
 </template>

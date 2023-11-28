@@ -14,8 +14,8 @@ export default {
 </script>
 
 <template>
-  <div class="row p-0 m-0 justify-content-between">
-    <div class="col-2 p-0 mx-2 mb-4" v-for="cardObj in store.cardsArray">
+  <div class="row row-cols-5">
+    <div class="col mb-4" v-for="cardObj in store.cardsArray">
       <AppCard :card="cardObj" :cardImg="cardObj.card_images" />
     </div>
   </div>
@@ -27,9 +27,5 @@ export default {
 
 .row {
   background-color: white;
-
-  .col-2 {
-    background-color: $mainColor;
-  }
 }
 </style>
