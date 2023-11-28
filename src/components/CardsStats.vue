@@ -16,7 +16,6 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-@use "../style/general.scss";
 .stats {
   background-color: #21252a;
   color: white;

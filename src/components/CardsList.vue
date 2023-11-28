@@ -23,7 +23,6 @@ export default {
 
 <style lang="scss" scoped>
 @use "../style/partials/variables" as *;
-@use "../style/general.scss";
 
 .row {
   background-color: white;
