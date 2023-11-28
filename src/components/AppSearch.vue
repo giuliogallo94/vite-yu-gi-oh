@@ -16,7 +16,8 @@ export default {
       class="form-select form-select-sm mb-4 w-25"
       aria-label="Small select example"
       v-model="store.archetypeChoice"
-      @change="$emit(`cardChoise`)">
+      @change="$emit(`cardChoice`)">
+      <option value=""></option>
       <option value="Alien">Alien</option>
       <option value="Ally of Justice">Ally of Justice</option>
       <option value="Ancient Gear">Ancient Gear</option>

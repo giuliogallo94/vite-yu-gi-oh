@@ -1,4 +1,5 @@
 <script>
+import axios from "axios";
 import { store } from "../store";
 import CardsList from "./CardsList.vue";
 import CardsStats from "./CardsStats.vue";
@@ -8,6 +9,7 @@ export default {
   data() {
     return {
       store,
+      axios,
     };
   },
   components: {
@@ -20,17 +22,23 @@ export default {
   methods: {
     showSelected() {
       console.log("select");
-      axios
-        .get(this.store.apiUrl, {
-          params: {
-            num: 20,
-            offset: 0,
-            archetype: this.store.archetypeChoice,
-          },
-        })
-        .then((resp) => {
+      if (this.store.archetypeChoice == "") {
+        axios.get(this.store.apiUrl).then((resp) => {
           this.store.cardsArray = resp.data.data;
         });
+      } else {
+        axios
+          .get(this.store.apiUrl, {
+            params: {
+              num: 20,
+              offset: 0,
+              archetype: this.store.archetypeChoice,
+            },
+          })
+          .then((resp) => {
+            this.store.cardsArray = resp.data.data;
+          });
+      }
     },
   },
 };
