@@ -24,12 +24,30 @@ export default {
     ChangePage,
     ChangePage,
   },
+  created() {
+    // Get all card
+    axios.get("https://db.ygoprodeck.com/api/v7/cardinfo.php?").then((resp) => {
+      this.store.allCardsArray = resp.data.data;
+      console.log(this.store.allCardsArray.length / 20);
+    });
+  },
   methods: {
-    showSelected() {
-      if (this.store.archetypeChoice == "") {
-        axios.get(this.store.apiUrl).then((resp) => {
+    loadPage() {
+      axios
+        .get(this.store.apiUrl, {
+          params: {
+            num: 20,
+            offset: this.page * 20,
+          },
+        })
+        .then((resp) => {
           this.store.cardsArray = resp.data.data;
         });
+    },
+
+    showSelected() {
+      if (this.store.archetypeChoice == "") {
+        this.loadPage();
       } else {
         axios
           .get(this.store.apiUrl, {
@@ -44,18 +62,7 @@ export default {
           });
       }
     },
-    loadPage() {
-      axios
-        .get(this.store.apiUrl, {
-          params: {
-            num: 20,
-            offset: this.page * 20,
-          },
-        })
-        .then((resp) => {
-          this.store.cardsArray = resp.data.data;
-        });
-    },
+
     showPrevPage() {
       console.log("ciao");
       if (this.page == 0) return;
@@ -63,6 +70,7 @@ export default {
       this.loadPage();
     },
     showNextPage() {
+      if (this.page == Math.floor(this.store.allCardsArray.length / 20)) return;
       this.page++;
       this.loadPage();
     },
