@@ -4,6 +4,7 @@ export default {
   data() {
     return {
       store,
+      archetypes: ["Alien", "Ally of Justice", "Ancient Gear"],
     };
   },
 };
@@ -18,9 +19,12 @@ export default {
       v-model="store.archetypeChoice"
       @change="$emit(`cardChoice`)">
       <option value=""></option>
-      <option value="Alien">Alien</option>
-      <option value="Ally of Justice">Ally of Justice</option>
-      <option value="Ancient Gear">Ancient Gear</option>
+      <option
+        v-for="(archetype, index) in archetypes"
+        :key="index"
+        :value="archetype">
+        {{ archetype }}
+      </option>
     </select>
   </div>
 </template>

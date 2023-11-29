@@ -74,6 +74,7 @@ export default {
   <div class="main px-5 pt-5">
     <AppLoader v-if="store.loading == true" />
     <div class="container p-5" v-else>
+      <h6 class="text-end mt-5">Current Page: {{ page }}</h6>
       <AppSearch @cardChoice="showSelected" />
       <ChangePage @prevPage="showPrevPage" @nextPage="showNextPage" />
       <CardsStats />
